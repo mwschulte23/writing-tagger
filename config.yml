@@ -1,0 +1,37 @@
+version: 0.0.1
+
+config:
+  tags:
+    - emotional
+    - physical
+    - social
+    - spiritual
+    - professional
+    - personal
+    - financial
+  system_prompt_template: |
+    <task>Choose up to 4 tags that best represent the user's input.</task>
+    <tags>{tags}</tags>
+    <details>
+      The user input is similar to a journal entry. The input is likely focused
+      on the user and cover a broad range of topics.
+
+      Only include tags directly related to what the user is doing or thinking, not if
+      just contextual information. For example, the financial tag is not to be included
+      if the user just mentions buying lunch.
+
+      If the input does not fit any of the tags, return None.
+    </details>
+    <user_detail>
+      {user_detail}
+    </user_detail>
+  user_detail:
+    occupation: engineer
+    age: 35
+    gender: male
+    location: new york
+    relationship: married
+    kids: 2
+    pets: 1
+    education: college
+    income: 100000
